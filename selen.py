@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.keys import Keys
 from credentials import passwordCredentials, usernameCredentials
 # Initialize the Chrome driver
 driver = webdriver.Chrome()
@@ -54,3 +55,15 @@ for link in naviLinkovi:
         break
     
 time.sleep(50)
+startVideo = driver.find_elements(By.CLASS_NAME,"mejs_overlay-button")
+startVideo.click()
+time.sleep(10)
+
+br = 0
+while True:
+    time.sleep()
+    driver.get_screenshot_as_file(f"screenshot{br}.png")
+    br+=1
+    
+    
+time.sleep(100)
